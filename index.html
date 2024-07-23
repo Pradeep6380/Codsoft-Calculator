@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <link rel="icon" href="keys.png">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "sans-serif";
+            outline: none;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+        .calculator{
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: inset 5px 5px 12px #000000,
+                              5px 5px 12px rgb(0, 0, 0);
+            display: grid;  
+            grid-template-columns: repeat(4,68px);                
+        }
+
+        input{
+            grid-column: span 4;
+            height: 70px;
+            width: 260px;
+            background-color: #ecf0f3;
+            box-shadow: inset -5px -5px -12px #ffffff,
+                        inset -5px -5px -12px  rgb(255, 2, 2) ;  
+            border: none;       
+             border-radius: 30px;   
+             color: rbd( 70,70,7o); 
+             font-size:50px ;   
+             text-align: end;
+             margin: auto;
+             margin-top: 40px;
+             margin-bottom: 30px;
+             padding: 20px;
+        }
+
+        button{
+            height: 48px;
+            width: 48px;
+            background-color:#ecf0f3 ;
+            box-shadow: -5px -5px 12px #ffffff,
+                        -5px -5px 12px rgb(255, 255, 255);
+            border: none; 
+            border-radius: 30%;  
+            margin: 8px;  
+            font-size: 16px;
+        }
+
+        .equal{
+            width: 115px;
+            border-radius: 40px;
+            background-color:#ecf0f3 ;
+            box-shadow: -5px -5px 12px #ffffff,
+                        -5px -5px 12px rgba(0,0,0,.16);
+        }
+
+        body{
+            background-image: url(pexels-abdghat-1631678.jpg);
+            background-size: cover;
+    background-position: center;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: difference;
+        }
+    </style>
+    <title>
+       Online Calculator
+    </title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen">
+            <button onclick="cl()">cl</button>
+            <button onclick="del()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">/</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()"class="equal"> =</button>
+    </div>
+     </div>
+
+     <script>
+        let outputscreen = document.getElementById("output-screen");
+
+        function display(num){
+                 outputscreen.value += num;
+        }
+        function calculate(){
+            try{
+                outputscreen.value = eval(outputscreen.value);
+            }
+            catch(err)
+            {
+                alert("Invalid")
+            }
+        }
+        function cl(){
+            outputscreen.value = outputscreen.value.slice(0,-1000);
+        }
+        function del(){
+            outputscreen.value=outputscreen.value.slice(0,-1);
+        }
+     </script>
+</body>
+</html>
